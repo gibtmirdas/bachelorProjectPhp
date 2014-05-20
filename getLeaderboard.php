@@ -18,8 +18,10 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
 **********************/
 $return="";
 $leaderboard = mysql_query("SELECT * FROM `".$table_leaderboard."` ORDER BY track ASC, score ASC;");
-while($row = mysql_fetch_assoc($leaderboard)){
-	$return.=$row['username']."/".$row['score']."/".$row['track']."-";
-}
-echo substr($return, 0, strlen($return)-1);
+// while($row = mysql_fetch_assoc($leaderboard)){
+// 	$return.=$row['username']."/".$row['score']."/".$row['track']."-";
+// }
+// echo substr($return, 0, strlen($return)-1);
+
+echo sqlToXml($leaderboard, $table_leaderboard);
 ?>
