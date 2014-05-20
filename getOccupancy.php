@@ -13,13 +13,13 @@ if (!$con)
 // Select unity DB
 mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql_error());
 
-/*********************
- * Return major_name *
- *********************/
+/*************************
+ * Return occupancy_name *
+ *************************/
 $return="";
-$leaderboard = mysql_query("SELECT major_name FROM `".$table_major."` ORDER BY major_name;");
+$leaderboard = mysql_query("SELECT occupancy_name FROM `".$table_occupancy."` ORDER BY occupancy_name;");
 while($row = mysql_fetch_assoc($leaderboard)){
-	$return.=$row['major_name']."-";
+	$return.=$row['occupancy_name']."-";
 }
 echo substr($return, 0, strlen($return)-1);
 ?>
