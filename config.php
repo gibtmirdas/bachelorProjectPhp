@@ -24,7 +24,7 @@ $table_track = "track";
  * @param
  *        	string - $childElementName - child element name
  */
-function sqlToXml($queryResult, $rootElementName, $childElementName) {
+function sqlToXml($queryResult, $rootElementName = "Unity", $childElementName) {
 	$xmlData = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
 	$xmlData .= "<" . $rootElementName . ">";
 	

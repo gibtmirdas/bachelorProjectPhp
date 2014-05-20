@@ -16,13 +16,6 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
 /*********************
  * Return major_name *
  *********************/
-$return="";
 $leaderboard = mysql_query("SELECT major_name FROM `".$table_major."` ORDER BY major_name;");
-// while($row = mysql_fetch_assoc($leaderboard)){
-// 	$return.=$row['major_name']."-";
-// }
-//echo substr($return, 0, strlen($return)-1);
-$toRet="haha". sqlToXml($leaderboard, "LeaderBoard", "Fuck");
-
-echo $toRet;
+echo sqlToXml($leaderboard, "Major");
 ?>
