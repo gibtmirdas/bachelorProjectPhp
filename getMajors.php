@@ -22,5 +22,7 @@ while($row = mysql_fetch_assoc($leaderboard)){
 	$return.=$row['major_name']."-";
 }
 //echo substr($return, 0, strlen($return)-1);
-return sqlToXml($leaderboard, "LeaderBoard", "Fuck");
+$toRet="haha". sqlToXml($leaderboard, "LeaderBoard", "Fuck");
+
+echo $toRet;
 ?>
