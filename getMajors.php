@@ -21,5 +21,6 @@ $leaderboard = mysql_query("SELECT major_name FROM `".$table_major."` ORDER BY m
 while($row = mysql_fetch_assoc($leaderboard)){
 	$return.=$row['major_name']."-";
 }
-echo substr($return, 0, strlen($return)-1);
+//echo substr($return, 0, strlen($return)-1);
+return sqlToXml($leaderboard, "LeaderBoard", "Fuck");
 ?>
