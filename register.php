@@ -29,8 +29,13 @@ $numrows = mysql_num_rows($check);
 if ($numrows == 0)
 {
 	$pass = md5($pass);
-	$ins = mysql_query("INSERT INTO  `".$table_account."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name`,  `ski_skills` )
+	if(isset($_POST['skills'])){
+		$ins = mysql_query("INSERT INTO  `".$table_account."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name`,  `ski_skills` )
 			 VALUES ('' ,  '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."' ,  '".$skills."') ; ");
+	}else{
+		$ins = mysql_query("INSERT INTO  `".$table_account."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name` )
+			 VALUES ('' ,  '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."') ; ");
+	}
 	if ($ins)
 		die ("Successfully Created User!");
 	else
