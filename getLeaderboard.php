@@ -23,5 +23,5 @@ $leaderboard = mysql_query("SELECT * FROM `".$table_leaderboard."` ORDER BY trac
 // }
 // echo substr($return, 0, strlen($return)-1);
 
-echo sqlToXml($leaderboard, $table_leaderboard);
+echo sqlToXml($leaderboard,$table_leaderboard."s", $table_leaderboard);
 ?>
