@@ -61,5 +61,6 @@ function txtToXML($rootElementName, $message){
 	$xmlData .= "<" . $rootElementName . ">";
 	$xmlData .= $message;
 	$xmlData .= "</" . $rootElementName . ">";
+	return $xmlData;
 }
 ?>
