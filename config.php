@@ -54,4 +54,12 @@ function sqlToXml($queryResult, $rootElementName, $childElementName) {
 	
 	return $xmlData;
 }
+
+function txtToXML($rootElementName, $message){
+
+	$xmlData = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
+	$xmlData .= "<" . $rootElementName . ">";
+	$xmlData .= $message;
+	$xmlData .= "</" . $rootElementName . ">";
+}
 ?>

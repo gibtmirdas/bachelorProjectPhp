@@ -37,14 +37,12 @@ if ($numrows == 0)
 			 VALUES ('' ,  '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."') ; ");
 	}
 	if ($ins)
-		die ("Successfully Created User!");
+		echo txtToXML("register", "OK");
 	else
-		die ("Error: " . mysql_error());
+		echo txtToXML("register", mysql_error());
 }
 else
-{
-	die("User already exists!");
-}
+	echo txtToXML("register", "User already exists!");
 
 
 ?>
