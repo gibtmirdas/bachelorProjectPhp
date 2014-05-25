@@ -16,6 +16,6 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
 /*********************
  * Return major_name *
  *********************/
-$leaderboard = mysql_query("SELECT name FROM `".$table_skills."`;");
+$leaderboard = mysql_query("SELECT name FROM `".$table_skills."` ORDER BY `skl_id`;");
 echo sqlToXml($leaderboard, $table_skills."s", $table_skills);
 ?>
