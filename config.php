@@ -65,4 +65,11 @@ function txtToXML($rootElementName, $message){
 	$xmlData .= "</" . $rootElementName . ">";
 	return $xmlData;
 }
+
+function logg($query){
+
+	while ( $record = mysql_fetch_object ( $queryResult ) ) {
+		echo $record."--";
+	}
+}
 ?>
