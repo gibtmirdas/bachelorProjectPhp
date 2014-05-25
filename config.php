@@ -7,7 +7,7 @@ $sql_pwd = "unitypass";
 $db_name = "unityserver";
 
 // Tables names
-$table_achivement = "achivement";
+$table_achivement = "achievement";
 $table_difficulty = "difficulty";
 $table_major = "major";
 $table_occupancy = "occupancy";
