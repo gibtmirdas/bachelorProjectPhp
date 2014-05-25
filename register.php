@@ -24,16 +24,16 @@ if (!$con)
 	
 mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql_error());
 
-$check = mysql_query("SELECT * FROM `".$table_account."` WHERE `username`='".$user."'");
+$check = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."'");
 $numrows = mysql_num_rows($check);
 if ($numrows == 0)
 {
 	$pass = md5($pass);
 	if(isset($_POST['skills'])){
-		$ins = mysql_query("INSERT INTO  `".$table_account."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name`,  `ski_skills` )
-			 VALUES ('' ,  '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."' ,  '".$skills."') ; ");
+		$ins = mysql_query("INSERT INTO  `".$table_player."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name`,  `ski_skills` )
+			 VALUES ('' , '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."' ,  '".$skills."') ; ");
 	}else{
-		$ins = mysql_query("INSERT INTO  `".$table_account."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name` )
+		$ins = mysql_query("INSERT INTO  `".$table_player."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name` )
 			 VALUES ('' ,  '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."') ; ");
 	}
 	if ($ins)
