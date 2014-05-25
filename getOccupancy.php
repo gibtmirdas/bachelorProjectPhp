@@ -17,6 +17,6 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
  * Return occupancy_name *
  *************************/
 $return="";
-$leaderboard = mysql_query("SELECT occupancy_name FROM `".$table_occupancy."` ORDER BY occupancy_name;");
+$leaderboard = mysql_query("SELECT name FROM `".$table_occupancy."`;");
 echo sqlToXml($leaderboard, $table_occupancy."s", $table_occupancy)
 ?>

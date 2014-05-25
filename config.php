@@ -7,12 +7,14 @@ $sql_pwd = "unitypass";
 $db_name = "unityserver";
 
 // Tables names
-$table_account = "account";
 $table_achivement = "achivement";
-$table_leaderboard = "leaderboard";
+$table_difficulty = "difficulty";
 $table_major = "major";
 $table_occupancy = "occupancy";
-$table_skiskills = "skiskills";
+$table_player = "player";
+$table_points = "points";
+$table_ranking = "ranking";
+$table_skills = "skills";
 $table_track = "track";
 
 /**
