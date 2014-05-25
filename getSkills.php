@@ -17,5 +17,5 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
  * Return major_name *
  *********************/
 $leaderboard = mysql_query("SELECT name FROM `".$table_skiskills."`;");
-echo sqlToXml($leaderboard, $table_skiskills."s", $table_skiskills);
+echo "aa".sqlToXml($leaderboard, $table_skiskills."s", $table_skiskills);
 ?>
