@@ -30,10 +30,10 @@ if ($numrows == 0)
 {
 	$pass = md5($pass);
 	if(isset($_POST['skills'])){
-		$ins = mysql_query("INSERT INTO  `".$table_player."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name`,  `ski_skills` )
+		$ins = mysql_query("INSERT INTO  `".$table_player."` (  `player_id` ,  `username` ,  `password`,  `age`,  `major`,  `occupancy`,  `skills` )
 			 VALUES ('' , '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."' ,  '".$skills."') ; ");
 	}else{
-		$ins = mysql_query("INSERT INTO  `".$table_player."` (  `account_id` ,  `username` ,  `password`,  `age`,  `major_name`,  `occupancy_name` )
+		$ins = mysql_query("INSERT INTO  `".$table_player."` (  `player_id` ,  `username` ,  `password`,  `age`,  `major`,  `occupancy` )
 			 VALUES ('' ,  '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."') ; ");
 	}
 	if ($ins)
