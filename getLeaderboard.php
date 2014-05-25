@@ -24,6 +24,6 @@ $leaderboard = mysql_query("SELECT t.name, p.username,a.ranking, a.date, SUM(po.
 		JOIN `".$table_points."` AS po ON po.ranking=a.ranking AND po.difficulty=t.difficulty 
 		GROUP BY p.username 
 		ORDER BY total;");
-echo logg($leaderboard);
+logg($leaderboard);
 //echo sqlToXml($leaderboard,"leaderboards","leaderboards");
 ?>

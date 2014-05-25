@@ -68,7 +68,7 @@ function txtToXML($rootElementName, $message){
 
 function logg($query){
 
-	while ( $record = mysql_fetch_object ( $queryResult ) ) {
+	while ( $record = mysql_fetch_object ( $query ) ) {
 		echo $record."--";
 	}
 }
