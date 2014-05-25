@@ -17,11 +17,12 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
  * Return leaderboard *
 **********************/
 $return="";
-$leaderboard = mysql_query("SELECT * FROM `".$table_leaderboard."` ORDER BY track ASC, score ASC;");
-// while($row = mysql_fetch_assoc($leaderboard)){
-// 	$return.=$row['username']."/".$row['score']."/".$row['track']."-";
-// }
-// echo substr($return, 0, strlen($return)-1);
-
-echo sqlToXml($leaderboard,$table_leaderboard."s", $table_leaderboard);
+$leaderboard = mysql_query("SELECT t.name, p.username,a.ranking, a.date, SUM(po.points) AS total 
+		FROM `".$table_achivement."` AS a 
+		JOIN `".$table_track."` AS t ON `t`.`name`=`a`.`track` 
+		JOIN `".$table_player."` AS p ON a.`player`=p.`username` 
+		JOIN `".$table_points."` AS po ON po.ranking=a.ranking AND po.difficulty=t.difficulty 
+		GROUP BY p.username 
+		ORDER BY total;");
+echo sqlToXml($leaderboard,"leaderboards","leaderboards");
 ?>
