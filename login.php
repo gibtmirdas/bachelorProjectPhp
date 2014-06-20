@@ -14,20 +14,14 @@ mysql_select_db($db_name , $con) or die ("could not load the database" . mysql_e
 
 $check = mysql_query("SELECT * FROM `".$table_account."` WHERE `username`='".$user."'");
 $numrows = mysql_num_rows($check);
-if ($numrows == 0)
-{
-	die ("Username does not exist \n");
-}
-else
+if ($numrows != 0)
 {
 	$pass = md5($pass);
 	while($row = mysql_fetch_assoc($check))
 	{
 		if ($pass == $row['password'])
-			die("login-SUCCESS");
-		else
-			die("Password does not match \n");
+			return txtToXML("login", "OK");
 	}
 }
-
+return txtToXML("login", "Error: Username or password doesn't exist");
 ?>
