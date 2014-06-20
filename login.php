@@ -20,8 +20,8 @@ if ($numrows != 0)
 	while($row = mysql_fetch_assoc($check))
 	{
 		if ($pass == $row['password'])
-			return txtToXML("login", "OK");
+			echo txtToXML("login", "OK");
 	}
 }
-return txtToXML("login", "Error: Username or password doesn't exist");
+echo txtToXML("login", "Error: Username or password doesn't exist");
 ?>
