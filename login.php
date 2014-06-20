@@ -16,7 +16,6 @@ $check = mysql_query("SELECT * FROM `".$table_account."` WHERE `username`='".$us
 $numrows = mysql_num_rows($check);
 if ($numrows != 0)
 {
-	$pass = md5($pass);
 	while($row = mysql_fetch_assoc($check))
 	{
 		if ($pass == $row['password'])
