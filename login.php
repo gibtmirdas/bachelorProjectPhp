@@ -15,9 +15,7 @@ $result = "";
 $result = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."'");
 //$numrows = mysql_num_rows($check);
 while ($row = mysql_fetch_array($result)) {
-	echo '<tr>';
-		echo '<td>' . htmlspecialchars($field) . '</td>';
-	echo '</tr>';
+	echo $row['password'];
 }
 
 
