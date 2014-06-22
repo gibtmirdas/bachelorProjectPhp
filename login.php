@@ -17,7 +17,7 @@ if(!empty($row['username']) AND !empty($row['password'])) {
 	$tmp = "";
 	$tmp .= txtToXML("login", "OK\t");
 	$query2 = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."' AND `password`='".$pass."'") or die(mysql_error());
-	$tmp .= sqlToXml($query2, "players", "player");
+	$tmp .= sqlToXmlNoHeader($query2, "players", "player");
 	echo $tmp;
 } else { 
 	echo txtToXML("login", "Error: Username or password incorrect");
