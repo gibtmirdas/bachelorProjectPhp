@@ -11,14 +11,24 @@ if (!$con)
 	die('Could not connect: ' . mysql_error());
 
 mysql_select_db($db_name , $con) or die ("could not load the database" . mysql_error());
-$result = "";
 $result = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."'");
+
 //$numrows = mysql_num_rows($check);
-if(mysql_num_rows($result) == 1){
-	while ($row = mysql_fetch_array($result)) {
-		if($pass == $row['password'])
-			echo txtToXML("login", "OK");
-	}
-}else
-	echo txtToXML("login", "Error: Username or password doesn't exist");
+// if(mysql_num_rows($result) == 1){
+// 	while ($row = mysql_fetch_array($result)) {
+// 		if($pass == $row['password'])
+// 			echo txtToXML("login", "OK");
+// 	}
+// }else
+// 	echo txtToXML("login", "Error: Username or password incorrect");
+
+if($result == "")
+	echo txtToXML("login", "Error: Username or password incorrect");
+else if(mysql_num_rows($result) != 1)
+	echo txtToXML("login", "Error: Username or password incorrect");
+$row = mysql_fetch_array($result);
+if($pass == $row['password'])
+	echo txtToXML("login", "OK");
+else
+	echo txtToXML("login", "Error: Username or password incorrect");
 ?>
