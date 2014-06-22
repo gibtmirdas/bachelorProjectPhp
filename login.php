@@ -12,17 +12,28 @@ if (!$con)
 
 mysql_select_db($db_name , $con) or die ("could not load the database" . mysql_error());
 
-$check = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."'");
-$numrows = mysql_num_rows($check);
-if ($numrows != 0)
-{
-	echo "NB ROw"+$numrows;
-	while($row = mysql_fetch_assoc($check))
-	{
-		echo "PASS:"+$row['password'];
-		if ($pass == $row['password'])
-			echo txtToXML("login", "OK");
+$result = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."'");
+//$numrows = mysql_num_rows($check);
+while ($row = mysql_fetch_array($result)) {
+	echo '<tr>';
+	foreach($row as $field) {
+		echo '<td>' . htmlspecialchars($field) . '</td>';
 	}
+	echo '</tr>';
 }
+
+
+
+// if ($numrows != 0)
+// {
+// 	echo "NB ROw"+$numrows;
+// 	while($row = mysql_fetch_assoc($check))
+// 	{
+// 		echo "PASS:"+$row['password'];
+// 		if ($pass == $row['password'])
+// 			echo txtToXML("login", "OK");
+// 	}
+
+// }
 echo txtToXML("login", "Error: Username or password doesn't exist");
 ?>
