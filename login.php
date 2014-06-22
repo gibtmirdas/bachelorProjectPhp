@@ -19,6 +19,7 @@ if ($numrows != 0)
 	echo "NB ROw"+$numrows;
 	while($row = mysql_fetch_assoc($check))
 	{
+		echo "PASS:"+$row['password'];
 		if ($pass == $row['password'])
 			echo txtToXML("login", "OK");
 	}
