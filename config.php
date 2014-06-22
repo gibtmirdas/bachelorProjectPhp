@@ -55,6 +55,7 @@ function sqlToXml($queryResult, $rootElementName, $childElementName) {
 	$xmlData .= "</" . $rootElementName . ">";
 	
 	return $xmlData;
+}
 
 function sqlToXmlNoHeader($queryResult, $rootElementName, $childElementName) {
 	$xmlData = "";
