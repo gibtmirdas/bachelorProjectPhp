@@ -6,6 +6,8 @@ $pass = $_POST['password'];
 // $user="thomas";
 // $pass="00e29ed2637611b998c5bf577783d8d3";
 
+echo $user."--".$pass;
+
 $con = mysql_connect($url,$sql_usr,$sql_pwd) or ("Cannot connect!"  . mysql_error());
 if (!$con)
 	die('Could not connect: ' . mysql_error());
