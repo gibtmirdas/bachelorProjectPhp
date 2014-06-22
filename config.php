@@ -7,15 +7,15 @@ $sql_pwd = "unitypass";
 $db_name = "unityserver";
 
 // Tables names
-$table_achivement = "achievement";
-$table_difficulty = "difficulty";
-$table_major = "major";
-$table_occupancy = "occupancy";
-$table_player = "player";
-$table_points = "points";
-$table_ranking = "ranking";
-$table_skills = "skills";
-$table_track = "track";
+$table_achivement = "dat_achievement";
+$table_player = "dat_player";
+$table_points = "set_lvl";
+$table_major = "set_major";
+$table_occupancy = "set_occupancy";
+$table_ranking = "set_ranking";
+$table_skills = "set_skills";
+$table_track = "set_track";
+$table_difficulty = "set_type";
 
 /**
  *
@@ -46,7 +46,7 @@ function sqlToXml($queryResult, $rootElementName, $childElementName) {
 			if (! empty ( $record->$fieldName ))
 				$xmlData .= $record->$fieldName;
 			else
-				$xmlData .= "null";
+				$xmlData .= "0";
 			
 			$xmlData .= "</" . $fieldName . ">";
 		}
