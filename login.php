@@ -10,10 +10,12 @@ if (!$con)
 	die('Could not connect: ' . mysql_error());
 
 mysql_select_db($db_name , $con) or die ("could not load the database" . mysql_error());
+
 $query = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."' AND `password`='".$pass."'");
-$row = mysql_fetch_array($query); 
-if(!empty($row['username']) AND !empty($row['password'])) 
-	echo txtToXML("login", "OK");
-else
-	echo txtToXML("login", "3Error: Username or password incorrect");
+while($row = mysql_fetch_assoc($query)){
+	if(!empty($row['username']) AND !empty($row['password']))
+		echo txtToXML("login", "OK");
+	else
+		echo txtToXML("login", "3Error: Username or password incorrect");
+}
 ?>
