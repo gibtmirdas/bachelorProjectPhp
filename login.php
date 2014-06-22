@@ -17,6 +17,6 @@ if(!empty($row['username']) AND !empty($row['password'])) {
 	$_SESSION['username'] = $row['password']; 
 		echo txtToXML("login", "OK");
 } else { 
-		echo txtToXML("login", "Error: Username or password incorrect");
+		echo txtToXML("login", "Error: Username or password incorrect: user=".$user."--pass:".$pass);
 }
 ?>
