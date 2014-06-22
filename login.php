@@ -23,7 +23,7 @@ else if(mysql_num_rows($result) != 1)
 // Get 1 row => compare hashed pwd
 else{
 	$row = mysql_fetch_array($result);
-	if($pass == $row['password'])
+	if($pass === $row['password'])
 		echo txtToXML("login", "OK");
 	else
 		echo txtToXML("login", "Error: Username or password incorrect");
