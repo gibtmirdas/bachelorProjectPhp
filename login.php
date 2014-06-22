@@ -13,13 +13,19 @@ if (!$con)
 mysql_select_db($db_name , $con) or die ("could not load the database" . mysql_error());
 $result = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."'");
 
+// Reponse empty
 if($result == "")
 	echo txtToXML("login", "Error: Username or password incorrect");
+// More than 1 row
 else if(mysql_num_rows($result) != 1)
 	echo txtToXML("login", "Error: Username or password incorrect");
-$row = mysql_fetch_array($result);
-if($pass == $row['password'])
-	echo txtToXML("login", "OK");
-else
-	echo txtToXML("login", "Error: Username or password incorrect");
+
+// Get 1 row => compare hashed pwd
+else{
+	$row = mysql_fetch_array($result);
+	if($pass == $row['password'])
+		echo txtToXML("login", "OK");
+	else
+		echo txtToXML("login", "Error: Username or password incorrect");
+}
 ?>
