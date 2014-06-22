@@ -13,5 +13,5 @@ if (!$con)
 mysql_select_db($db_name , $con) or die ("could not load the database" . mysql_error());
 
 $query = mysql_query("SELECT * FROM `".$table_track."` WHERE `lvl`<='".$lvl."' ORDER BY lvl") or die(mysql_error());
-echo sqlToXml($query, "tracks", "track");
+echo sqlToXml($query, $table_track."s", $table_track);
 ?>
