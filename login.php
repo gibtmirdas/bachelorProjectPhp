@@ -12,7 +12,7 @@ if (!$con)
 
 mysql_select_db($db_name , $con) or die ("could not load the database" . mysql_error());
 
-$result = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."'");
+$result = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."' LIMIT 1");
 //$numrows = mysql_num_rows($check);
 while ($row = mysql_fetch_array($result)) {
 	echo '<tr>';
