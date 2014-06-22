@@ -1,10 +1,7 @@
 <?PHP
 include 'config.php';
 
-// $lvl = $_POST['lvl'];
-$lvl = 1;
-// $user="thomas";
-// $pass="00e29ed2637611b998c5bf577783d8d3a";
+$lvl = $_POST['lvl'];
 
 $con = mysql_connect($url,$sql_usr,$sql_pwd) or ("Cannot connect!"  . mysql_error());
 if (!$con)
