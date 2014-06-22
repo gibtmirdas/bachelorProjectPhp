@@ -24,7 +24,7 @@ else if(mysql_num_rows($result) != 1)
 else{
 	$row = mysql_fetch_array($result);
 	if($pass === $row['password'])
-		echo txtToXML("login", "OK");
+		echo txtToXML("login", "OK - ".$pass."--".$row['password']);
 	else
 		echo txtToXML("login", "Error: Username or password incorrect");
 }
