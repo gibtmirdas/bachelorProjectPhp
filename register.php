@@ -35,9 +35,11 @@ if ($numrows == 0)
 		$ins = mysql_query("INSERT INTO  `".$table_player."` (  `player_id` ,  `username` ,  `password`,  `age`,  `major`,  `occupancy` )
 			 VALUES ('' ,  '".$user."' ,  '".$pass."' ,  '".$age."' ,  '".$major."' ,  '".$occupancy."') ; ");
 	}
-	if ($ins)
-		echo txtToXML("register", "OK");
-	else
+	if ($ins){
+		$query2 = mysql_query("SELECT * FROM `".$table_player."` WHERE `username`='".$user."' AND `password`='".$pass."'") or die(mysql_error());
+		echo xmlLogin($query2, "OK", "player");
+		//echo txtToXML("register", "OK");
+	}else
 		echo txtToXML("register", mysql_error());
 }
 else
