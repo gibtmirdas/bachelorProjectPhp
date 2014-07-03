@@ -1,8 +1,8 @@
 <?PHP
 include 'config.php';
 
-// $lvl = $_POST['lvl'];
-$lvl = 1;
+$lvl = $_POST['lvl'];
+// $lvl = 1;
 
 $con = mysql_connect($url,$sql_usr,$sql_pwd) or ("Cannot connect!"  . mysql_error());
 if (!$con)
