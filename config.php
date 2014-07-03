@@ -7,15 +7,15 @@ $sql_pwd = "unitypass";
 $db_name = "unityserver";
 
 // Tables names
-$table_achivement = "dat_achievement";
+$table_achievement = "dat_achievement";
 $table_player = "dat_player";
-$table_points = "set_lvl";
 $table_major = "set_major";
 $table_occupancy = "set_occupancy";
-$table_ranking = "set_ranking";
 $table_skills = "set_skills";
 $table_track = "set_track";
-$table_difficulty = "set_type";
+$table_type = "set_type";
+$table_lvl = "set_lvl";
+$table_ranking = "set_ranking";
 
 /**
  *
