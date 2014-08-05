@@ -2,17 +2,17 @@
 
 include 'config.php';
 
-// $player= $_POST['player'];
-// $track= $_POST['track'];
-// $ranking= $_POST['ranking'];
-// $score= $_POST['score'];
-// $date= $_POST['date'];
+$player= $_POST['player'];
+$track= $_POST['track'];
+$ranking= $_POST['ranking'];
+$score= $_POST['score'];
+$date= $_POST['date'];
 
-$player="test";
-$track="Nendaz-slalom";
-$ranking="1";
-$score="20";
-$date="01-01-2014";
+// $player="test";
+// $track="Nendaz-slalom";
+// $ranking="1";
+// $score="20";
+// $date="01-01-2014";
 
 /**************
  * Connection *
