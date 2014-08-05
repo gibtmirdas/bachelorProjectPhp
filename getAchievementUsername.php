@@ -2,6 +2,9 @@
 
 include 'config.php';
 
+//$user = $_POST['user'];
+$user = "test";
+
 /**************
  * Connection *
 ***************/
@@ -17,6 +20,6 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
  * Return Achivements *
 **********************/
 $return="";
-$result = mysql_query("SELECT username, SUM(pts) AS ptss FROM `".$table_achivement."` GROUP BY username");
-echo sqlToXml($result,"achievementAlls","achievementAll");
+$leaderboard = mysql_query("SELECT * FROM `".$table_achievement."`");// WHERE `player`='".$user."'");
+echo sqlToXml($result,"achievementUsernames","achievementUsername");
 ?>
