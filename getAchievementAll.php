@@ -16,8 +16,7 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
 /**********************
  * Return Achivements *
 **********************/
-$return="";
-$result = mysql_query("SELECT player, SUM(score) FROM `".$table_achievement."` GROUP BY username");
-$result = mysql_query("SELECT * `".$table_achievement."`");
+//$result = mysql_query("SELECT player, SUM(score) FROM `".$table_achievement."` GROUP BY username");
+$result = mysql_query("SELECT * FROM `".$table_achievement."`");
 echo sqlToXml($result,"achievementAlls","achievementAll");
 ?>
