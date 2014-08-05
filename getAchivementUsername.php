@@ -21,4 +21,5 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
 **********************/
 $return="";
 $leaderboard = mysql_query("SELECT * FROM `".$table_achivement."` WHERE `username`='".$user."'");
+echo sqlToXml($result,"achievementUsernames","achievementUsername");
 ?>
