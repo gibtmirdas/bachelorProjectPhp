@@ -20,6 +20,6 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
  * Return Achivements *
 **********************/
 $return="";
-$leaderboard = mysql_query("SELECT * FROM `".$table_achivement."` WHERE `player`='".$user."'");
+$leaderboard = mysql_query("SELECT * FROM `".$table_achievement."` WHERE `player`='".$user."'");
 echo sqlToXml($result,"achievementUsernames","achievementUsername");
 ?>
