@@ -17,9 +17,6 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
  * Return Achivements *
 **********************/
 $return="";
-$leaderboard = mysql_query("SELECT username, SUM(pts) AS ptss FROM `".$table_achivement."` GROUP BY username");
-while($row = mysql_fetch_assoc($leaderboard)){
-	$return.=$row['username']."/".$row['ptss']."-";
-}
-echo substr($return, 0, strlen($return)-1);
+$result = mysql_query("SELECT username, SUM(pts) AS ptss FROM `".$table_achivement."` GROUP BY username");
+echo sqlToXml($result,"achievementAlls","achievementAll");
 ?>

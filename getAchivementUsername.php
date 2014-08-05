@@ -2,8 +2,8 @@
 
 include 'config.php';
 
-$user = $_POST['user'];
-// $user = "player2";
+//$user = $_POST['user'];
+$user = "test";
 
 /**************
  * Connection *
@@ -20,9 +20,5 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
  * Return Achivements *
 **********************/
 $return="";
-$leaderboard = mysql_query("SELECT username, SUM(pts) AS ptss FROM `".$table_achivement."` WHERE `username`='".$user."'");
-while($row = mysql_fetch_assoc($leaderboard)){
-	$return.=$row['username']."/".$row['ptss']."-";
-}
-echo substr($return, 0, strlen($return)-1);
+$leaderboard = mysql_query("SELECT * FROM `".$table_achivement."` WHERE `username`='".$user."'");
 ?>
