@@ -2,17 +2,17 @@
 
 include 'config.php';
 
-$player= $_POST['player'];
-$track= $_POST['track'];
-$ranking= $_POST['ranking'];
-$score= $_POST['score'];
-$date= $_POST['date'];
+// $player= $_POST['player'];
+// $track= $_POST['track'];
+// $ranking= $_POST['ranking'];
+// $score= $_POST['score'];
+// $date= $_POST['date'];
 
-// $player="test";
-// $track="Nendaz-slalom";
-// $ranking="1";
-// $score="20";
-// $date="01-01-2014";
+$player="test";
+$track="Nendaz-slalom";
+$ranking="1";
+$score="20";
+$date="01-01-2014";
 
 /**************
  * Connection *
@@ -33,7 +33,9 @@ $numrows = mysql_num_rows($check);
 if ($numrows == 0){
 	echo txtToXML("achievement", "Error: player doesn't exist");
 }else{
-	add_score($table_achievement, $player, $track, $ranking, $score, $date);
+// 	add_score($table_achievement, $player, $track, $ranking, $score, $date);
+	$avg_previous = getLvl($player);
+	echo $avg_previous;
 }
 
 /*****************************************
@@ -46,5 +48,19 @@ function add_score($table, $player, $track, $ranking, $score, $date){
 			echo txtToXML("achievement", "OK");
 		else
 			echo txtToXML("achievement", "Error: Cannot add achievement");
+}
+
+
+/*****************************************
+ * Update player lvl *
+*****************************************/
+function updatePlayerLvl(){
+	
+}
+
+function getLvl($player){
+		$ins = mysql_query("SELECT AVG(score) AS avg FROM dat_achievement WHERE `player`='".$player."' GROUP BY player ");
+		$ans = mysql_fetch_array($ins);
+		return $ans['avg'];
 }
 ?>
