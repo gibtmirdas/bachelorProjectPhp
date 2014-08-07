@@ -2,8 +2,8 @@
 
 include 'config.php';
 
-//$user = $_POST['player'];
-$user = "test";
+$user = $_POST['player'];
+// $user = "test";
 
 /**************
  * Connection *
