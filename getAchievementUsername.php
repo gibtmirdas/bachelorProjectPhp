@@ -2,8 +2,8 @@
 
 include 'config.php';
 
-$user = $_POST['user'];
-// $user = "test";
+//$user = $_POST['player'];
+$user = "test";
 
 /**************
  * Connection *
@@ -19,6 +19,6 @@ mysql_select_db("$db_name" , $con) or die ("could not load the database" . mysql
 /**********************
  * Return Achivements *
 **********************/
-$result = mysql_query("SELECT * FROM `".$table_achievement."`");// WHERE `player`='".$user."'");
+$result = mysql_query("SELECT * FROM `".$table_achievement."` WHERE `player`='".$user."'");
 echo sqlToXml($result,"achievementUsernames","achievementUsername");
 ?>
