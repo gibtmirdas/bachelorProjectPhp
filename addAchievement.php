@@ -61,7 +61,7 @@ function add_score($table, $player, $track, $ranking, $score, $date){
 function updatePlayerLvl($playerArray, $delta){
 	$lvl_old = $playerArray['lvl'];
 	$min_max = mysql_fetch_array(mysql_query("SELECT MIN(value) AS min, MAX(value) AS max FROM `set_lvl`"));
-	$lvl_new = 0;
+	$lvl_new = $lvl_old;
 	if($delta > 0){
 		echo "Increase";
 		// increase lvl if lvl < lvlMax
@@ -74,6 +74,7 @@ function updatePlayerLvl($playerArray, $delta){
 			$lvl_new -= $lvl_old;
 	}
 	// else => Do nothing because delta==0
+	echo "LvlNew:".$lvl_new."---LvlOld:".$lvl_old;
 	$ins = mysql_query("UPDATE `dat_player` SET `lvl`='".$lvl_new."' WHERE `username` = '".$playerArray['username']."';");
 	mysql_fetch_array($ins);
 }
