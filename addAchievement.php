@@ -33,9 +33,11 @@ $numrows = mysql_num_rows($check);
 if ($numrows == 0){
 	echo txtToXML("achievement", "Error: player doesn't exist");
 }else{
-// 	add_score($table_achievement, $player, $track, $ranking, $score, $date);
 	$avg_previous = getLvl($player);
-	echo $avg_previous;
+	echo "previous=".$avg_previous;
+	add_score($table_achievement, $player, $track, $ranking, $score, $date);
+	$avg_new = getLvl($player);
+	echo "after=".$avg_new;
 }
 
 /*****************************************
