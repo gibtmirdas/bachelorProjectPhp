@@ -75,6 +75,7 @@ function updatePlayerLvl($playerArray, $delta){
 	}
 	// else => Do nothing because delta==0
 	$ins = mysql_query("UPDATE `dat_player` SET `lvl`='".$lvl_new."' WHERE `username` = '".$playerArray['username']."';");
+	mysql_fetch_array($ins);
 }
 
 function getLvl($player){
