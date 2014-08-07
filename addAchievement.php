@@ -39,7 +39,7 @@ if ($numrows == 0){
 	add_score($table_achievement, $player, $track, $ranking, $score, $date);
 	$avg_new = getLvl($player);
 	echo "after=".$avg_new;
-	updatePlayerLvl($playerArray, $avg_new-$avg_previous);
+	updatePlayerLvl($playerArray['username'], $playerArray['lvl'], $avg_new-$avg_previous);
 }
 
 /*****************************************
@@ -58,7 +58,7 @@ function add_score($table, $player, $track, $ranking, $score, $date){
 /*****************************************
  * Update player lvl *
 *****************************************/
-function updatePlayerLvl($playerArray, $delta){
+function updatePlayerLvl($username, $lvl, $delta){
 	$lvl_old = $playerArray['lvl'];
 	$min_max = mysql_fetch_array(mysql_query("SELECT MIN(value) AS min, MAX(value) AS max FROM `set_lvl`"));
 	$lvl_new = $lvl_old;
