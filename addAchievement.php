@@ -55,9 +55,7 @@ if ($numrows == 0){
 function add_score($table, $player, $track, $ranking, $score, $date){
 		$ins = mysql_query("INSERT INTO  `".$table."` ( `player` ,  `track` , `ranking`, `score`, `date` ) VALUES
 				 ('".$player."' ,  '".$track."' , '".$ranking."' , '".$score."' ,  '".date("Y-m-d H:i:s")."') ; ");
-		if ($ins)
-			echo txtToXML("achievement", "OK");
-		else
+		if (!$ins)
 			echo txtToXML("achievement", "Error: Cannot add achievement");
 }
 
@@ -88,6 +86,7 @@ function updatePlayerLvl($username, $lvl, $delta){
 	}
 	// else => Do nothing because delta==0
 	mysql_query("UPDATE `dat_player` SET `lvl`='".$lvl_new."' WHERE `username` = '".$username."';");
+	echo txtToXML("achievement", "OK-".$lvl_new);
 }
 
 /**
