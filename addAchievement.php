@@ -35,11 +35,8 @@ if ($numrows == 0){
 	echo txtToXML("achievement", "Error: player doesn't exist");
 }else{
 	$avg_previous = getLvl($player);
-	echo "previous=".$avg_previous;
 	add_score($table_achievement, $player, $track, $ranking, $score, $date);
 	$avg_new = getLvl($player);
-	echo "after=".$avg_new;
-	echo "<br/>lvl:".$playerArray['lvl']."<br/>";
 	updatePlayerLvl($playerArray['username'], $playerArray['lvl'], $avg_new-$avg_previous);
 }
 
@@ -77,27 +74,20 @@ function add_score($table, $player, $track, $ranking, $score, $date){
 function updatePlayerLvl($username, $lvl, $delta){
 	$lvl_old = $lvl;
 	$min_max = mysql_fetch_array(mysql_query("SELECT MIN(value) AS min, MAX(value) AS max FROM `set_lvl`"));
-	echo"<br/>MIN:".$min_max['min']."--MAX:".$min_max['max']."<br/>";
 	$lvl_new = $lvl_old;
 	if($delta > 0){
-		echo "Increase";
 		// increase lvl if lvl < lvlMax
 		if($lvl_old < $min_max['max']){
-			echo"FUCK0";
 			$lvl_new = $lvl_old +1;
 		}
 	}else if ($delta < 0){
-		echo "Decrease";
 		// lower lvl > lvlMin
 		if($lvl_old > $min_max['min']){
-			echo"FUCK1";
 			$lvl_new = $lvl_old-1;
 		}
 	}
 	// else => Do nothing because delta==0
-	echo "LvlNew:".$lvl_new."---LvlOld:".$lvl_old;
 	mysql_query("UPDATE `dat_player` SET `lvl`='".$lvl_new."' WHERE `username` = '".$username."';");
-	//mysql_fetch_object($ins);
 }
 
 /**
