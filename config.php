@@ -18,7 +18,7 @@ $table_lvl = "set_lvl";
 $table_ranking = "set_ranking";
 
 /**
- *
+ * Convert sql query response into an XML string.
  * @param
  *        	mysql_resource - $queryResult - mysql query result
  * @param
@@ -57,6 +57,12 @@ function sqlToXml($queryResult, $rootElementName, $childElementName) {
 	return $xmlData;
 }
 
+/**
+ * Convert a string into a XML string
+ * @param unknown $rootElementName
+ * @param unknown $message
+ * @return string
+ */
 function txtToXML($rootElementName, $message){
 
 	$xmlData = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
@@ -66,6 +72,10 @@ function txtToXML($rootElementName, $message){
 	return $xmlData;
 }
 
+/**
+ * Display information
+ * @param unknown $query
+ */
 function logg($query){
 
 	while ( $record = mysql_fetch_object ( $query ) ) {
